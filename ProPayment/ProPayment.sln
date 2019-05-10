@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28809.33
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProPayment", "ProPayment.csproj", "{0AFA2457-C787-4D05-AD1B-781763DB8DEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0AFA2457-C787-4D05-AD1B-781763DB8DEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AFA2457-C787-4D05-AD1B-781763DB8DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AFA2457-C787-4D05-AD1B-781763DB8DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AFA2457-C787-4D05-AD1B-781763DB8DEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7CBD3D33-D2DD-4B50-8829-E6299F527398}
+	EndGlobalSection
+EndGlobal

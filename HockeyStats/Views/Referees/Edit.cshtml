@@ -1,0 +1,59 @@
+﻿@model HockeyStats.Models.Referee
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Referee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="RefereeName" class="control-label"></label>
+                <input asp-for="RefereeName" class="form-control" />
+                <span asp-validation-for="RefereeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdentityUserId" class="control-label"></label>
+                <input asp-for="IdentityUserId" class="form-control" />
+                <span asp-validation-for="IdentityUserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefTypeId" class="control-label"></label>
+                <select asp-for="RefTypeId" class="form-control" asp-items="ViewBag.RefTypeId"></select>
+                <span asp-validation-for="RefTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefCategoryId" class="control-label"></label>
+                <select asp-for="RefCategoryId" class="form-control" asp-items="ViewBag.RefCategoryId"></select>
+                <span asp-validation-for="RefCategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefCategoryTypeId" class="control-label"></label>
+                <select asp-for="RefCategoryTypeId" class="form-control" asp-items="ViewBag.RefCategoryTypeId"></select>
+                <span asp-validation-for="RefCategoryTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefDistriktId" class="control-label"></label>
+                <select asp-for="RefDistriktId" class="form-control" asp-items="ViewBag.RefDistriktId"></select>
+                <span asp-validation-for="RefDistriktId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
