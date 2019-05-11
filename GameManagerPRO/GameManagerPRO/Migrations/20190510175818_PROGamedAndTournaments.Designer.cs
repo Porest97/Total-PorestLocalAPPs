@@ -4,14 +4,16 @@ using GameManagerPRO.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GameManagerPRO.Migrations
 {
     [DbContext(typeof(GameManagerPROContext))]
-    partial class GameManagerPROContextModelSnapshot : ModelSnapshot
+    [Migration("20190510175818_PROGamedAndTournaments")]
+    partial class PROGamedAndTournaments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

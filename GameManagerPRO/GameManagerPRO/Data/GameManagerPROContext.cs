@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ProPayment.Models;
+using GameManagerPRO.Models;
 
 namespace GameManagerPRO.Models
 {
@@ -29,5 +30,9 @@ namespace GameManagerPRO.Models
         public DbSet<ProPayment.Models.Game> Game { get; set; }
 
         public DbSet<ProPayment.Models.Arena> Arena { get; set; }
+
+        public DbSet<GameManagerPRO.Models.PROGame> PROGame { get; set; }
+
+        public DbSet<GameManagerPRO.Models.Tournament> Tournament { get; set; }
     }
 }
