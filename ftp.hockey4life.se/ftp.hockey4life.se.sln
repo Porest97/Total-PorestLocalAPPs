@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ftp://ftp.hockey4life.se", "ftp://ftp.hockey4life.se", "{B82CB035-E060-42F9-AE0B-B87B9A6A5024}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/ftp.hockey4life.se"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\AppData\Local\Temp\VWDWebCache\ftp_ftp.hockey4life.se_hockey4life.se\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\ftp.hockey4life.se\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/ftp.hockey4life.se"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\AppData\Local\Temp\VWDWebCache\ftp_ftp.hockey4life.se_hockey4life.se\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\ftp.hockey4life.se\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B82CB035-E060-42F9-AE0B-B87B9A6A5024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B82CB035-E060-42F9-AE0B-B87B9A6A5024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14D92DAC-7CA8-416A-ACF3-A93D36117D20}
+	EndGlobalSection
+EndGlobal
