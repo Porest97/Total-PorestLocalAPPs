@@ -21,8 +21,54 @@ namespace IdentityUserLab.Controllers
             _context = context;
         }
 
+
+        // GET: Assets with Site - search
+        public async Task<IActionResult> IndexSearch(string searchString, string searchString1,
+            string searchString2, string searchString3, string searchString4)
+        {
+            var people = from p in _context.Person                
+
+                         select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                people = people
+                .Where(s => s.FirstName.Contains(searchString));
+
+            }
+            if (!String.IsNullOrEmpty(searchString1))
+            {
+                people = people
+                .Where(s => s.LastName.Contains(searchString1));
+
+            }
+            if (!String.IsNullOrEmpty(searchString2))
+            {
+                people = people
+                .Where(s => s.PhoneNumber1.Contains(searchString2));
+                
+
+            }
+            if (!String.IsNullOrEmpty(searchString3))
+            {
+                people = people
+                .Where(s => s.Email.Contains(searchString3));
+
+            }
+            if (!String.IsNullOrEmpty(searchString4))
+            {
+                people = people
+                .Where(s => s.Email.Contains(searchString4));
+
+            }
+
+
+            return View(await people.ToListAsync());
+        }
+
+
         // GET: People
-       
+
         public async Task<IActionResult> Index()
         {
             return View(await _context.Person.ToListAsync());
@@ -63,7 +109,7 @@ namespace IdentityUserLab.Controllers
             {
                 _context.Add(person);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexSearch));
             }
             return View(person);
         }
@@ -114,7 +160,7 @@ namespace IdentityUserLab.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexSearch));
             }
             return View(person);
         }
@@ -145,7 +191,7 @@ namespace IdentityUserLab.Controllers
             var person = await _context.Person.FindAsync(id);
             _context.Person.Remove(person);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(IndexSearch));
         }
 
         private bool PersonExists(int id)

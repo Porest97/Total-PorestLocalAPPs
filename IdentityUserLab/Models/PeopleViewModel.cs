@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IdentityUserLab.Models
 {
-    public class Person
+    public class PeopleViewModel
     {
         public int Id { get; set; }
 
@@ -41,11 +41,11 @@ namespace IdentityUserLab.Models
         [Display(Name = "SSN")]
         public string Ssn { get; set; }
 
-        [Display(Name = "Phone 1")]
+        [Display(Name = "Telefonnummer1")]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber1 { get; set; }
 
-        [Display(Name = "Phone 2")]
+        [Display(Name = "Telefonnummer2")]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber2 { get; set; }
 
@@ -56,7 +56,7 @@ namespace IdentityUserLab.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        //Person Category, Status and Type.
+
 
     }
 }

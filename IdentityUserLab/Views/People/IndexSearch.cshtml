@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Person>
+@{
+    ViewData["Title"] = "IndexSite";
+}
+    <div class="badge">
+
+        
+        <div class="col-sm-12 align-content-sm-center">
+            <div class="col-sm-6 align-content-sm-center">
+                <p>
+                 <h6>People - with First, Lastname, Phonenumbers and E-Mail search.</h6>
+                    <a class="btn btn-sm btn-success" asp-controller="People" asp-action="Create">Register Person</a>
+                </p>
+            </div>
+        </div>
+        <div class="col-sm-12 text-center align-content-sm-center">
+            <div class="col-sm-6 align-content-sm-center">
+                <form asp-controller="People" asp-action="IndexSearch">
+                    <p>
+                        @Html.DisplayNameFor(model => model.FirstName) : <input type="text" name="SearchString">
+                        @Html.DisplayNameFor(model => model.LastName) : <input type="text" name="SearchString1">
+                        @Html.DisplayNameFor(model => model.PhoneNumbers) : <input type="text" name="SearchString2, SearchString3">
+                        @Html.DisplayNameFor(model => model.Email) : <input type="text" name="SearchString4">
+                        <input type="submit" value="Search" />
+                    </p>
+                </form>
+            </div>
+
+        </div>
+        <table class="table table-responsive-sm table-striped">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.FullName)</th>
+
+
+                    <th>@Html.DisplayNameFor(model => model.Address)</th>
+                    <th>@Html.DisplayNameFor(model => model.PhoneNumbers)</th>
+
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.OrderBy(p => p.FullName))
+                {
+                    <tr>
+                        <td> @Html.DisplayFor(modelItem => item.FullName)</td>
+
+                        <td> @Html.DisplayFor(modelItem => item.Address)</td>
+                        <td> @Html.DisplayFor(modelItem => item.PhoneNumbers)</td>
+
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>
+                            <a class="btn btn-sm btn-success" asp-controller="People" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                            <a class="btn btn-sm btn-success" asp-controller="People" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>        
+    </div>
