@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
-using IdentityUserLab.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using PROHockeyManager2021.Models.ViewModels;
 
-namespace IdentityUserLab.Controllers
+namespace PROHockeyManager2021.Controllers
 {
     public class AccountController : Controller
     {
@@ -53,18 +52,10 @@ namespace IdentityUserLab.Controllers
 
                 if (result.Succeeded)
                 {
-                    // If the user is signed in and in the Admin role, then it is
-                    // the Admin user that is creating a new user. So redirect the
-                    // Admin user to ListRoles action
-                    if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-                    {
-                        return RedirectToAction("ListUsers", "Administration");
-                    }
-
                     await signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("index", "home");
                 }
-                foreach(var error in result.Errors)
+                foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError("", error.Description);
                 }
@@ -72,7 +63,7 @@ namespace IdentityUserLab.Controllers
             }
 
             return View(model);
-        }     
+        }
 
 
         [HttpGet]
@@ -101,7 +92,7 @@ namespace IdentityUserLab.Controllers
                     {
                         return RedirectToAction("index", "home");
                     }
-                   
+
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
@@ -109,14 +100,5 @@ namespace IdentityUserLab.Controllers
 
             return View(model);
         }
-        [HttpGet]
-        [AllowAnonymous]
-        public IActionResult AccessDenied()
-        {
-            return View();
-        }
-
-        // Other actions
     }
 }
-

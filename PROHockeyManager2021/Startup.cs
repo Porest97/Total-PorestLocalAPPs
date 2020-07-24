@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,12 +9,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
-using IdentityUserLab.Data;
+using PROHockeyManager2021.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 
-namespace IdentityUserLab
+namespace PROHockeyManager2021
 {
     public class Startup
     {
@@ -30,10 +30,10 @@ namespace IdentityUserLab
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<LabContext>(options =>
+            services.AddDbContext<PROHockeyManagerContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("LabContext")));
             services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<LabContext>();
+                .AddEntityFrameworkStores<PROHockeyManagerContext>();
 
             services.AddMvc(options =>
             {

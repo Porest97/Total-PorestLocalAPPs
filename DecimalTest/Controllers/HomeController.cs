@@ -5,12 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using IdentityUserLab.Models;
-using Microsoft.AspNetCore.Authorization;
+using DecimalTest.Models;
 
-namespace IdentityUserLab.Controllers
+namespace DecimalTest.Controllers
 {
-    //[AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -24,11 +22,6 @@ namespace IdentityUserLab.Controllers
         {
             return View();
         }
-        public IActionResult People()
-        {
-            return View();
-        }
-       
 
         public IActionResult Privacy()
         {

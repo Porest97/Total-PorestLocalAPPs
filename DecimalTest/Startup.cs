@@ -9,12 +9,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
-using IdentityUserLab.Data;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Authorization;
+using DecimalTest.Data;
 
-namespace IdentityUserLab
+namespace DecimalTest
 {
     public class Startup
     {
@@ -30,19 +27,8 @@ namespace IdentityUserLab
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<LabContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("LabContext")));
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<LabContext>();
-
-            services.AddMvc(options =>
-            {
-                var policy = new AuthorizationPolicyBuilder()
-                .RequireAuthenticatedUser()
-                .Build();
-                options.Filters.Add(new AuthorizeFilter(policy));
-            }).AddXmlDataContractSerializerFormatters();
-
+            services.AddDbContext<DecimalTestContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("DecimalTestContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,8 +46,6 @@ namespace IdentityUserLab
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
-            app.UseAuthentication();
 
             app.UseRouting();
 
