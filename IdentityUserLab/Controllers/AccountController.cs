@@ -36,13 +36,14 @@ namespace IdentityUserLab.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [AllowAnonymous]
         public IActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -52,6 +53,14 @@ namespace IdentityUserLab.Controllers
 
                 if (result.Succeeded)
                 {
+                    // If the user is signed in and in the Admin role, then it is
+                    // the Admin user that is creating a new user. So redirect the
+                    // Admin user to ListRoles action
+                    if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                    {
+                        return RedirectToAction("ListUsers", "Administration");
+                    }
+
                     await signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("index", "home");
                 }
@@ -63,9 +72,9 @@ namespace IdentityUserLab.Controllers
             }
 
             return View(model);
-        }
+        }     
 
-        
+
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Login()
@@ -100,5 +109,14 @@ namespace IdentityUserLab.Controllers
 
             return View(model);
         }
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
+
+        // Other actions
     }
 }
+

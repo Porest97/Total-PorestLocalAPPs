@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace IdentityUserLab.Controllers
 {
-   
+    [Authorize(Roles = "Admin,SuperUser")]    
     public class PeopleController : Controller
     {
         private readonly LabContext _context;
@@ -91,7 +91,7 @@ namespace IdentityUserLab.Controllers
 
             return View(person);
         }
-        
+        [Authorize(Roles = "Admin")]
         // GET: People/Create
         public IActionResult Create()
         {
@@ -113,7 +113,7 @@ namespace IdentityUserLab.Controllers
             }
             return View(person);
         }
-        
+        [Authorize(Roles = "Admin")]
         // GET: People/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -164,7 +164,7 @@ namespace IdentityUserLab.Controllers
             }
             return View(person);
         }
-       
+        [Authorize(Roles = "Admin")]
         // GET: People/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
